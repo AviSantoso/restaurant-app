@@ -11,10 +11,51 @@
     </head>
 
     <body>
+        <h1>Bookings</h1>
+        <hr />
+        <h2>Reservations</h2>
+        <ul id="reservations"></ul>
+        <hr />
+        <h2>Waiting List</h2>
+        <ul id="waiting-list"></ul>
+
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
         <script type="text/javascript">
             function autorun() {
+                console.clear();
 
+                const reservations = [
+                    {
+                        name: "Chad"
+                    },
+                    {
+                        name: "Nick"
+                    }
+                ]
+                const waitingList = [
+                    {
+                        name: "Thibault"
+                    }
+                ]
+
+                const reservationsEl = $("#reservations");
+                const waitingListEl = $("#waiting-list");
+
+                function displayBookings() {
+                    for (const booking of reservations) {
+                        reservationsEl.append($("<li>").text(booking.name));
+                    }
+                    for (const booking of waitingList) {
+                        waitingListEl.append($("<li>").text(booking.name));
+                    }
+                }
+
+                function clearBookings() {
+                    reservationsEl.html("");
+                    waitingListEl.html("");
+                }
+
+                displayBookings();
             }
             if (document.addEventListener) document.addEventListener("DOMContentLoaded", autorun, false);
             else if (document.attachEvent) document.attachEvent("onreadystatechange", autorun);

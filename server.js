@@ -3,7 +3,8 @@ const path = require("path");
 
 const server = express();
 const publicDir = path.join(__dirname, "public");
+const PORT = process.env.PORT || 3000;
 
 server.use(express.static(publicDir));
 
-server.listen(process.env.PORT || 3000, () => console.log("Server online!"));
+server.listen(PORT, () => console.log("Server online at http://localhost:" + PORT));
