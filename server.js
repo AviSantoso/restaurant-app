@@ -1,9 +1,9 @@
 const express = require("express");
+const path = require("path");
 
-var app = express();
+const server = express();
+const publicDir = path.join(__dirname, "public");
 
-app.get("/", (req, res) => {
-    res.send("Hello worlds!")
-})
+server.use(express.static(publicDir));
 
-app.listen(process.env.PORT || 3000, () => console.log("Server online!"));
+server.listen(process.env.PORT || 3000, () => console.log("Server online!"));
