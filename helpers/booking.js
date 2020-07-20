@@ -1,7 +1,7 @@
-const Booking = function (name, numberOfPeople) {
+const Booking = function (name, seats) {
     const booking = {}
     booking.name = name;
-    booking.numberOfPeople = numberOfPeople;
+    booking.seats = seats;
     return booking;
 }
 
